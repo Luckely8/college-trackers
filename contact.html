@@ -1,0 +1,111 @@
+<section class="contact-form-section">
+    <h2>Contact College Trackers</h2>
+    <p>Have questions about college planning for Amazon seller families? We're here to help.</p>
+    
+    <!-- FORMSPREE.IO FORM - WORKING -->
+    <form action="https://formspree.io/f/xwvnpkaa" method="POST" id="contact-form">
+        <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="amazon-store">Your Amazon Store Name</label>
+            <input type="text" id="amazon-store" name="amazon_store" placeholder="Optional">
+        </div>
+        
+        <div class="form-group">
+            <label for="students">College-Bound Students</label>
+            <select id="students" name="students">
+                <option value="">Select...</option>
+                <option value="1">1 student</option>
+                <option value="2">2 students</option>
+                <option value="3">3 students</option>
+                <option value="4+">4+ students</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="message">Your Message *</label>
+            <textarea id="message" name="message" rows="5" required 
+                      placeholder="Tell us about your college planning needs..."></textarea>
+        </div>
+        
+        <!-- Formspree hidden fields -->
+        <input type="hidden" name="_subject" value="College Trackers Contact Form">
+        <input type="text" name="_gotcha" style="display:none">
+        
+        <button type="submit" class="cta-button">Send Message</button>
+    </form>
+    
+    <!-- Success message -->
+    <div id="success-message" style="display:none; 
+         background: linear-gradient(135deg, #d4edda, #c3e6cb);
+         color: #155724;
+         padding: 25px;
+         border-radius: 10px;
+         margin: 30px 0;
+         border-left: 5px solid #28a745;
+         box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <h3 style="margin-top:0; color: #0c5460;">✅ Message Sent Successfully!</h3>
+        <p>Thank you for contacting College Trackers. We've received your message and will get back to you within 24 hours.</p>
+        <p><strong>Check your email for a confirmation from Formspree.</strong></p>
+        <p style="font-size:14px; color:#666; margin-bottom:0;">
+            You can also <a href="contact.html">send another message</a> if needed.
+        </p>
+    </div>
+    
+    <!-- JAVASCRIPT - ONLY THIS ONE SCRIPT -->
+    <script>
+    // Handle form submission without leaving your site
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const form = e.target;
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        
+        // Show loading state
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        // Submit to Formspree
+        fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+            if (response.ok) {
+                // Success - show message on YOUR site
+                document.getElementById('success-message').style.display = 'block';
+                form.reset();
+                
+                // Scroll to success message
+                document.getElementById('success-message').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            } else {
+                alert('There was an error. Please try again or email us directly.');
+            }
+        })
+        .catch(error => {
+            alert('Network error. Please try again or email us directly.');
+        })
+        .finally(() => {
+            // Reset button
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        });
+    });
+    </script>
+    <!-- END OF JAVASCRIPT -->
+    
+</section>
+<!-- REMOVE THIS EXTRA SCRIPT BELOW - IT'S DUPLICATE AND WRONG -->
