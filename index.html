@@ -1,39 +1,901 @@
-<!-- REPLACE YOUR CURRENT FORM WITH THIS -->
-<form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
-    <!-- Your existing form fields - KEEP THESE -->
-    <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Trackers | College Planning for Amazon Seller Families</title>
+    <meta name="description" content="Specialized college planning tools, calculators, and advisors for Amazon seller families. Maximize financial aid, minimize tax impact, and plan strategically.">
+    <meta name="keywords" content="Amazon sellers, college planning, FAFSA, financial aid, 529 plans, business owners, EFC, college calculators">
     
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
-    </div>
+    <!-- Open Graph for Social Media -->
+    <meta property="og:title" content="College Trackers - Planning Tools for Amazon Seller Families">
+    <meta property="og:description" content="Specialized college planning for Amazon business families. Tools, calculators, and expert advice.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://luckely8.github.io/college-trackers/">
     
-    <div class="form-group">
-        <label for="amazon-store">Amazon Store Name</label>
-        <input type="text" id="amazon-store" name="amazon_store">
-    </div>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/npm/twemoji@latest/assets/svg/1f393.svg">
     
-    <div class="form-group">
-        <label for="students">Number of College-Bound Students</label>
-        <select id="students" name="students">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4+">4+</option>
-        </select>
-    </div>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-    </div>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Add this hidden field for better emails -->
-    <input type="hidden" name="_subject" value="New Contact from College Trackers Website">
-    <input type="text" name="_gotcha" style="display:none">
-    
-    <button type="submit" class="cta-button">Send Message</button>
-</form>
+    <style>
+        /* ===== VARIABLES ===== */
+        :root {
+            --primary: #146eb4;    /* Amazon blue */
+            --primary-dark: #0d4a7a;
+            --secondary: #ff9900;  /* Amazon orange */
+            --accent: #10b981;     /* Success green */
+            --light: #f8fafc;
+            --light-gray: #f1f5f9;
+            --medium-gray: #cbd5e1;
+            --dark-gray: #64748b;
+            --dark: #1e293b;
+            --text: #334155;
+            --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            --border-radius: 16px;
+            --transition: all 0.3s ease;
+        }
+        
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--dark);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(20, 110, 180, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-large {
+            padding: 18px 40px;
+            font-size: 1.1rem;
+        }
+        
+        /* ===== HEADER & NAV ===== */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo i {
+            font-size: 2rem;
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+            color: var(--dark);
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: url('https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f4ca.svg') no-repeat right center;
+            background-size: contain;
+            opacity: 0.05;
+        }
+        
+        .hero-content {
+            max-width: 700px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            color: var(--primary);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--dark-gray);
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+        
+        .stat-label {
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+            margin-top: 5px;
+        }
+        
+        /* ===== FEATURES SECTION ===== */
+        .features {
+            background-color: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--hover-shadow);
+            border-color: var(--primary);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(20, 110, 180, 0.1), rgba(255, 153, 0, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        
+        .feature-icon i {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card p {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+        }
+        
+        /* ===== TOOLS SECTION ===== */
+        .tools {
+            background-color: var(--light-gray);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .tool-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 35px 30px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .tool-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .tool-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .tool-card p {
+            color: var(--dark-gray);
+            margin-bottom: 25px;
+        }
+        
+        /* ===== CTA SECTION ===== */
+        .cta {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+            border-radius: var(--border-radius);
+            padding: 80px 40px;
+            margin: 0 20px;
+        }
+        
+        .cta h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta .btn {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .cta .btn:hover {
+            background-color: var(--light);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .footer-contact li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: #cbd5e1;
+        }
+        
+        .footer-contact i {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            width: 25px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 30px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .stats {
+                gap: 30px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .cta {
+                padding: 60px 20px;
+                margin: 0;
+                border-radius: 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .features-grid,
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container">
+            <nav class="nav-container">
+                <a href="#" class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>College Trackers</span>
+                </a>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#tools">Tools</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content animate-up">
+                <h1>College Planning <span>Made Simple</span> for Amazon Seller Families</h1>
+                <p>Specialized tools, calculators, and expert guidance to navigate college admissions and financial aid while maximizing your Amazon business assets.</p>
+                
+                <div class="hero-buttons">
+                    <a href="contact.html" class="btn btn-primary btn-large">
+                        <i class="fas fa-calendar-check"></i> Get Free Consultation
+                    </a>
+                    <a href="#tools" class="btn btn-secondary btn-large">
+                        <i class="fas fa-calculator"></i> Explore Tools
+                    </a>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">50%+</div>
+                        <div class="stat-label">More Financial Aid Optimized</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">$40k+</div>
+                        <div class="stat-label">Average Family Savings</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">200+</div>
+                        <div class="stat-label">Amazon Families Served</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FEATURES SECTION ===== -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title animate-up">
+                <h2>Why Amazon Seller Families Choose Us</h2>
+                <p>We understand the unique financial complexities of Amazon businesses and tailor strategies accordingly.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card animate-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Business Asset Optimization</h3>
+                    <p>Strategically position your Amazon business assets to minimize impact on financial aid calculations while maintaining business health.</p>
+                    <a href="contact.html" class="btn btn-secondary">Learn More</a>
+                </div>
+                
+                <div class="feature-card animate-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3>FAFSA & CSS Profile Expertise</h3>
+                    <p>Specialized guidance for accurately reporting business income, inventory, and deductions on financial aid forms.</p>
+                    <a href="contact.html" class="btn btn-secondary">Learn More</a>
+                </div>
+                
+                <div class="feature-card animate-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Tax-Efficient Strategies</h3>
+                    <p>Coordinate college funding with Amazon business tax planning to maximize deductions and credits.</p>
+                    <a href="contact.html" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TOOLS SECTION ===== -->
+    <section class="tools" id="tools">
+        <div class="container">
+            <div class="section-title animate-up">
+                <h2>Specialized Planning Tools</h2>
+                <p>Interactive calculators and planners designed specifically for Amazon seller financial profiles.</p>
+            </div>
+            
+            <div class="tools-grid">
+                <div class="tool-card animate-up">
+                    <div class="tool-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>EFC Estimator</h3>
+                    <p>Project your Expected Family Contribution with Amazon business income scenarios.</p>
+                    <button class="btn btn-primary tool-button">Try Calculator</button>
+                </div>
+                
+                <div class="tool-card animate-up">
+                    <div class="tool-icon">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <h3>Timeline Planner</h3>
+                    <p>Custom roadmap from freshman year to college acceptance for seller families.</p>
+                    <button class="btn btn-primary tool-button">Start Planning</button>
+                </div>
+                
+                <div class="tool-card animate-up">
+                    <div class="tool-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Asset Allocation Advisor</h3>
+                    <p>Optimize business vs. personal assets for maximum financial aid eligibility.</p>
+                    <button class="btn btn-primary tool-button">Get Advice</button>
+                </div>
+                
+                <div class="tool-card animate-up">
+                    <div class="tool-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>College Cost Comparator</h3>
+                    <p>Compare net prices at different colleges based on your Amazon business structure.</p>
+                    <button class="btn btn-primary tool-button">Compare Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta" id="cta">
+        <div class="container">
+            <div class="section-title animate-up">
+                <h2>Ready to Optimize Your College Planning?</h2>
+                <p>Schedule a free 30-minute consultation with our Amazon-specialized advisors.</p>
+            </div>
+            
+            <div class="hero-buttons" style="justify-content: center;">
+                <a href="contact.html" class="btn btn-large" style="background-color: white; color: var(--primary);">
+                    <i class="fas fa-calendar-alt"></i> Book Free Consultation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>College Trackers</h3>
+                    <p style="color: #cbd5e1; margin-bottom: 20px;">Specialized college planning tools and guidance for Amazon seller families.</p>
+                    <div class="footer-contact">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@collegetrackers.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>(555) 123-4567</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Virtual consultations available nationwide</span>
+                        </li>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#tools">Tools</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Tools & Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">EFC Calculator</a></li>
+                        <li><a href="#">Timeline Planner</a></li>
+                        <li><a href="#">Asset Advisor</a></li>
+                        <li><a href="#">College Comparator</a></li>
+                        <li><a href="#">Amazon Seller FAQ</a></li>
+                        <li><a href="#">Financial Aid Guide</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 College Trackers. All rights reserved. | Designed specifically for Amazon seller families</p>
+                <p style="margin-top: 10px; font-size: 0.8rem;">This website connects to Formspree for contact form functionality.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-up');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.animate-up').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#home') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+        
+        // Tool buttons click handler
+        document.querySelectorAll('.tool-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('This tool is coming soon! For now, please use our Contact form to schedule a consultation and discuss your specific needs.');
+            });
+        });
+        
+        // Feature "Learn More" buttons
+        document.querySelectorAll('.btn-secondary').forEach(button => {
+            if (button.textContent.includes('Learn More')) {
+                button.addEventListener('click', (e) => {
+                    // Allow default navigation to contact.html
+                    // No alert needed since it's a real link
+                });
+            }
+        });
+    </script>
+</body>
+</html>
