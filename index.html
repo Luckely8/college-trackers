@@ -117,6 +117,8 @@
             margin: 0 auto;
         }
         
+        /* ===== BUTTON STYLES ===== */
+        /* Base button styles */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -130,32 +132,87 @@
             cursor: pointer;
             transition: var(--transition);
             font-family: 'Poppins', sans-serif;
+            text-decoration: none;
         }
         
+        /* Primary button (Amazon blue theme) */
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg, var(--primary), #1e40af);
             color: white;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(20, 110, 180, 0.3);
-        }
-        
-        .btn-secondary {
-            background-color: white;
-            color: var(--primary);
+            box-shadow: 0 4px 12px rgba(20, 110, 180, 0.25);
             border: 2px solid var(--primary);
         }
         
-        .btn-secondary:hover {
-            background-color: var(--primary);
-            color: white;
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #1e40af, var(--primary));
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(20, 110, 180, 0.35);
         }
         
+        .btn-primary:active {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(20, 110, 180, 0.25);
+        }
+        
+        /* Secondary button (Amazon orange accent) */
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--secondary);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--secondary), #ff8c00);
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .btn-secondary:hover {
+            color: white;
+            border-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 153, 0, 0.2);
+        }
+        
+        .btn-secondary:hover::before {
+            width: 100%;
+        }
+        
+        /* Button container for multiple buttons */
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        /* Utility classes */
         .btn-large {
             padding: 18px 40px;
             font-size: 1.1rem;
+        }
+        
+        /* Responsive buttons for mobile */
+        @media (max-width: 768px) {
+            .cta-buttons {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .cta-buttons .btn {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
         }
         
         /* ===== HEADER & NAV ===== */
@@ -620,6 +677,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#features">Features</a></li>
                     <li><a href="#tools">Tools</a></li>
+                    <li><a href="students.html">For Students</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </nav>
@@ -637,8 +695,8 @@
                     <a href="contact.html" class="btn btn-primary btn-large">
                         <i class="fas fa-calendar-check"></i> Get Free Consultation
                     </a>
-                    <a href="#tools" class="btn btn-secondary btn-large">
-                        <i class="fas fa-calculator"></i> Explore Tools
+                    <a href="students.html" class="btn btn-secondary btn-large">
+                        <i class="fas fa-user-graduate"></i> I'm a Student
                     </a>
                 </div>
                 
@@ -755,9 +813,12 @@
                 <p>Schedule a free 30-minute consultation with our Amazon-specialized advisors.</p>
             </div>
             
-            <div class="hero-buttons" style="justify-content: center;">
-                <a href="contact.html" class="btn btn-large" style="background-color: white; color: var(--primary);">
+            <div class="cta-buttons" style="justify-content: center;">
+                <a href="contact.html" class="btn btn-primary btn-large">
                     <i class="fas fa-calendar-alt"></i> Book Free Consultation
+                </a>
+                <a href="students.html" class="btn btn-secondary btn-large">
+                    <i class="fas fa-user-graduate"></i> Student Services
                 </a>
             </div>
         </div>
@@ -792,6 +853,7 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#features">Features</a></li>
                         <li><a href="#tools">Tools</a></li>
+                        <li><a href="students.html">For Students</a></li>
                         <li><a href="contact.html">Contact</a></li>
                         <li><a href="#">Privacy Policy</a></li>
                         <li><a href="#">Terms of Service</a></li>
