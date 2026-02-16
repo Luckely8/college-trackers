@@ -452,37 +452,194 @@
         }
         
         /* ===== CTA SECTION ===== */
-        .cta {
-            background: linear-gradient(135deg, #e6f0fa 0%, #d4e4f5 100%);
-            text-align: center;
-            border-radius: var(--border-radius);
-            padding: 80px 40px;
-            margin: 0 20px;
+        .cta-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
         }
         
-        .cta h2 {
-            color: #0d4a7a;
-            font-size: 2.5rem;
+        .cta-container {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-badge {
+            background-color: #146eb4;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
             margin-bottom: 20px;
         }
         
-        .cta p {
+        .cta-title {
+            color: #0d4a7a;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .cta-text {
+            color: #334155;
             font-size: 1.2rem;
-            color: #1e293b;
-            font-weight: 500;
-            max-width: 700px;
-            margin: 0 auto 40px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .cta .btn {
-            background-color: white;
-            color: var(--primary);
+        .cta-button-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         
-        .cta .btn:hover {
-            background-color: var(--light);
+        .btn-consult {
+            background-color: #146eb4;
+            color: white;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 10px rgba(20,110,180,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-consult:hover {
+            background-color: #0d4a7a;
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 20px rgba(20,110,180,0.4);
+        }
+        
+        .btn-student {
+            background-color: white;
+            color: #146eb4;
+            padding: 16px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid #146eb4;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-student:hover {
+            background-color: #f0f9ff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(20,110,180,0.1);
+        }
+        
+        /* ===== DOWNLOAD APP SECTION ===== */
+        .download-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .download-card {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .download-emoji {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+        
+        .download-title {
+            color: #0d4a7a;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .download-subtitle {
+            color: #475569;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .feature-box {
+            background-color: #f8fafc;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-grid {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .feature-column {
+            text-align: left;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .feature-icon-check {
+            color: #10b981;
+        }
+        
+        .feature-icon-blue {
+            color: #146eb4;
+        }
+        
+        .feature-text {
+            color: #334155;
+        }
+        
+        .download-button {
+            background: linear-gradient(135deg, #146eb4, #0d4a7a);
+            color: white;
+            padding: 18px 45px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.3rem;
+            display: inline-block;
+            box-shadow: 0 10px 20px rgba(20,110,180,0.3);
+            margin: 20px 0 10px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(20,110,180,0.4);
+        }
+        
+        .download-note {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 20px;
         }
         
         /* ===== FOOTER ===== */
@@ -561,6 +718,14 @@
             .section-title h2 {
                 font-size: 2.2rem;
             }
+            
+            .cta-title {
+                font-size: 2.2rem;
+            }
+            
+            .download-title {
+                font-size: 2.2rem;
+            }
         }
         
         @media (max-width: 768px) {
@@ -615,10 +780,23 @@
                 padding: 60px 0;
             }
             
-            .cta {
-                padding: 60px 20px;
-                margin: 0;
-                border-radius: 0;
+            .cta-section,
+            .download-section {
+                padding: 40px 0;
+            }
+            
+            .cta-title,
+            .download-title {
+                font-size: 2rem;
+            }
+            
+            .feature-grid {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .feature-column {
+                text-align: center;
             }
         }
         
@@ -639,6 +817,23 @@
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
+            }
+            
+            .cta-title,
+            .download-title {
+                font-size: 1.8rem;
+            }
+            
+            .download-card {
+                padding: 30px 20px;
+            }
+            
+            .btn-consult,
+            .btn-student,
+            .download-button {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
             }
         }
         
@@ -805,36 +1000,74 @@
         </div>
     </section>
 
-    <!-- ===== CTA SECTION ===== -->
-    <section class="cta" id="cta">
+    <!-- ===== CTA SECTION (TOP BOX) ===== -->
+    <section class="cta-section">
         <div class="container">
-            <div class="section-title animate-up">
-                <h2>Ready to Optimize Your College Planning?</h2>
-                <p style="color: #1e293b; font-weight: 500;">Schedule a free 30-minute consultation with our Amazon-specialized advisors.</p>
-            </div>
-            
-            <div class="cta-buttons" style="justify-content: center;">
-                <a href="contact.html" class="btn btn-primary btn-large">
-                    <i class="fas fa-calendar-alt"></i> Book Free Consultation
-                </a>
-                <a href="students.html" class="btn btn-secondary btn-large">
-                    <i class="fas fa-user-graduate"></i> Student Services
-                </a>
+            <div class="cta-container">
+                <span class="cta-badge">Limited Time</span>
+                <h2 class="cta-title">Ready to Optimize Your College Planning?</h2>
+                <p class="cta-text">Schedule a free 30-minute consultation with our Amazon-specialized advisors.</p>
+                
+                <div class="cta-button-group">
+                    <a href="contact.html" class="btn-consult">
+                        <i class="fas fa-calendar-alt"></i> Book Free Consultation
+                    </a>
+                    <a href="students.html" class="btn-student">
+                        <i class="fas fa-user-graduate"></i> Student Services
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== DOWNLOAD APP SECTION ===== -->
-    <section style="padding: 60px 0; background-color: var(--light);">
+    <!-- ===== DOWNLOAD APP SECTION (BOTTOM BOX) ===== -->
+    <section class="download-section">
         <div class="container">
-            <div style="text-align: center; margin: 0 auto; max-width: 600px; padding: 40px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border-radius: 15px; color: white;">
-                <h2 style="color: white; font-size: 2em; margin-bottom: 15px;">📱 Download Our CampusAI App</h2>
-                <p style="font-size: 1.2em; margin-bottom: 30px; color: white;">Track colleges, manage applications, and get AI-powered recommendations on the go!</p>
-                <a href="https://github.com/Luckely8/college-trackers/raw/main/CampusAI-Tracker-v1.0.apk" 
-                   style="background-color: var(--secondary); color: white; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 1.3em; display: inline-block; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+            <div class="download-card">
+                <div class="download-emoji">📱</div>
+                <h2 class="download-title">Download Our CampusAI App</h2>
+                <p class="download-subtitle">Track colleges, manage applications, and get AI-powered recommendations on the go!</p>
+                
+                <div class="feature-box">
+                    <div class="feature-grid">
+                        <div class="feature-column">
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle feature-icon-check"></i>
+                                <span class="feature-text">Version 1.0</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle feature-icon-check"></i>
+                                <span class="feature-text">Size: 4.8 MB</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-check-circle feature-icon-check"></i>
+                                <span class="feature-text">Android 6.0+</span>
+                            </div>
+                        </div>
+                        <div class="feature-column">
+                            <div class="feature-item">
+                                <i class="fas fa-shield-alt feature-icon-blue"></i>
+                                <span class="feature-text">Secure Download</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-rocket feature-icon-blue"></i>
+                                <span class="feature-text">Fast Performance</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-heart feature-icon-blue"></i>
+                                <span class="feature-text">Free Updates</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="https://github.com/Luckely8/college-trackers/raw/main/CampusAI-Tracker-v1.0.apk" class="download-button">
                     ⬇️ Download APK (4.8 MB)
                 </a>
-                <p style="margin-top: 20px; opacity: 0.9;">Android 6.0+ • Enable "Install unknown apps" in settings</p>
+                
+                <p class="download-note">
+                    <i class="fas fa-info-circle"></i> Enable "Install unknown apps" in settings
+                </p>
             </div>
         </div>
     </section>
